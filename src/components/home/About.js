@@ -8,7 +8,47 @@ const About = props => {
     padding: 10em;
   `;
 
-  return <StyledAbout>About Content will go here</StyledAbout>;
+  const StyledContainer = styled.div`
+    display: flex;
+    margin: 5em;
+    height: 30%;
+    justify-content: space-between;
+  `;
+
+  const StyledTop = styled.div`
+    height: 30%;
+    width: 100%;
+    border: 1px solid black;
+  `;
+
+  const StyledMiddle = styled.div`
+    height: 30%;
+    width: 40%;
+    border: 1px solid red;
+  `;
+
+  const StyledBottom = styled.div`
+    height: 30%;
+    width: 30%;
+    border: 1px solid blue;
+  `;
+
+  return (
+    <StyledAbout>
+      <StyledContainer>
+        <StyledTop>About Content will go here</StyledTop>
+      </StyledContainer>
+      <StyledContainer>
+        <StyledMiddle>Test</StyledMiddle>
+        <StyledMiddle>Test</StyledMiddle>
+      </StyledContainer>
+      <StyledContainer>
+        <StyledBottom>Test</StyledBottom>
+        <StyledBottom>Test</StyledBottom>
+        <StyledBottom>Test</StyledBottom>
+      </StyledContainer>
+    </StyledAbout>
+  );
 };
 
 export default About;

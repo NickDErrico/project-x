@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
+import Project from "../layouts/Project";
 
 const ProjectList = props => {
   const StyledProjectList = styled.div`
@@ -11,7 +12,11 @@ const ProjectList = props => {
     width: 70vw;
   `;
 
-  return <StyledProjectList>{props.children}</StyledProjectList>;
+  return (
+    <StyledProjectList>
+      <Project />
+    </StyledProjectList>
+  );
 };
 
 export default ProjectList;

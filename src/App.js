@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
@@ -10,6 +9,8 @@ import Home from "./pages/Home";
 import Help from "./pages/Help";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import Project from "./layouts/Project";
+import ProjectCreator from "./pages/ProjectCreator";
 
 // Light shades(cararra) : #F1F2ED
 // light accents(camouflage green) : #75816F
@@ -45,6 +46,11 @@ class App extends Component {
       }
     `;
 
+    const RouteContainer = styled.div`
+      display: flex;
+      justify-content: center;
+    `;
+
     return (
       <Router>
         <StyledBody className="App">
@@ -54,6 +60,10 @@ class App extends Component {
             <Route path="/help" component={Help} />
             <Route path="/login" component={Login} />
             <Route path="/profile" component={Profile} />
+            <RouteContainer>
+              <Route path="/project" component={Project} />
+              <Route path="/project/edit" component={ProjectCreator} />
+            </RouteContainer>
           </StyledContent>
           <Footer />
         </StyledBody>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 import Hero from "../layouts/Hero";
 import About from "../components/home/About";
 
