@@ -38,7 +38,7 @@ class App extends Component {
       width: 100%;
 
       &:after {
-        content: "\00a0";
+        content: \00a0;
         display: block;
         margin-top: var(-space);
         height: 0;
@@ -49,6 +49,7 @@ class App extends Component {
     const RouteContainer = styled.div`
       display: flex;
       justify-content: center;
+      height: 100%;
     `;
 
     return (
@@ -61,8 +62,8 @@ class App extends Component {
             <Route path="/login" component={Login} />
             <Route path="/profile" component={Profile} />
             <RouteContainer>
-              <Route path="/project" component={Project} />
-              <Route path="/project/edit" component={ProjectCreator} />
+              <Route exact path="/project" component={Project} />
+              <Route path="/project/3" component={ProjectCreator} />
             </RouteContainer>
           </StyledContent>
           <Footer />

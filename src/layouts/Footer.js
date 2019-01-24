@@ -6,6 +6,7 @@ const Footer = props => {
     display: flex;
     background-color: #253b39;
     color: #f1f2ed;
+    box-shadow: 0 0 5px black;
   `;
 
   const FooterContent = styled.div`

@@ -40,11 +40,7 @@ const Login = props => {
   `;
 
   return (
-    <Hero
-      url={
-        "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2018/08/oak-tree-2018822_1920.jpg?itok=b3r2FhB5&fc=50,50"
-      }
-    >
+    <Hero>
       <FormContainer method="post" action="">
         <FormInput type="text" placeholder="Username" />
         <FormInput type="text" placeholder="Password" />

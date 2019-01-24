@@ -10,7 +10,7 @@ const About = props => {
 
   const StyledContainer = styled.div`
     display: flex;
-    margin: 5em;
+    margin: 2em;
     height: 30%;
     justify-content: space-between;
   `;
