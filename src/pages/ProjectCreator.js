@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { changeArr } from "../dataStruct";
-import ComponentFuck from "./ComponentFuck";
+import FamilyMembers from "./FamilyMembers";
 
 class ProjectCreator extends Component {
   state = {
@@ -21,7 +21,8 @@ class ProjectCreator extends Component {
       { id: 13, name: "test8", parent_id: 5, project_id: 1 },
       { id: 14, name: "test9", parent_id: 3, project_id: 1 },
       { id: 15, name: "test10", parent_id: 5, project_id: 1 },
-      { id: 16, name: "test11", parent_id: 9, project_id: 1 }
+      { id: 16, name: "test11", parent_id: 9, project_id: 1 },
+      { id: 17, name: "test12", parent_id: 16, project_id: 1 }
     ],
     changedData: null,
     something: true
@@ -41,14 +42,11 @@ class ProjectCreator extends Component {
     //   justify-items: center;
     //   width: 100%;
     // `;
-    // const style = {
-    //   width: "40%"
-    // };
 
     return (
       <div>
         {this.state.changedData ? (
-          <ComponentFuck componentFamily={this.state.changedData} />
+          <FamilyMembers descendants={this.state.changedData} />
         ) : null}
       </div>
     );

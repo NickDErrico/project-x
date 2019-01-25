@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class ComponentFuck extends Component {
+class FamilyMembers extends Component {
   render() {
     const styled = {
       backgroundColor: "#7e6158",
@@ -10,13 +10,13 @@ class ComponentFuck extends Component {
     };
 
     console.log(this.props);
-    let ancestors = this.props.componentFamily.children.map(child => (
-      <ComponentFuck componentFamily={child} key={child.id} />
+    let ancestors = this.props.descendants.children.map(child => (
+      <FamilyMembers descendants={child} key={child.id} />
     ));
     let r = Math.floor(Math.random() * 80) + 175;
     let g = Math.floor(Math.random() * 80) + 175;
     let b = Math.floor(Math.random() * 80) + 175;
-    return this.props.componentFamily ? (
+    return this.props.descendants ? (
       <div
         className="child"
         style={{
@@ -27,11 +27,11 @@ class ComponentFuck extends Component {
           margin: "2px 2px"
         }}
       >
-        <b>{this.props.componentFamily.name}</b>
+        <b>{this.props.descendants.name}</b>
         {ancestors}
       </div>
     ) : null;
   }
 }
 
-export default ComponentFuck;
+export default FamilyMembers;
