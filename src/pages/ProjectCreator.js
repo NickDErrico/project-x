@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { createFamilyTree } from "../createFamilyTree";
-import FamilyMembers from "./FamilyMembers";
+import FamilyMembers from "../components/projectCreator/RenderFamilyMembers";
+import FMDetailView from "../components/projectCreator/FamilyMemberDetailView";
 
 class ProjectCreator extends Component {
   state = {
@@ -24,12 +25,24 @@ class ProjectCreator extends Component {
       { id: 16, name: "test11", parent_id: 9, project_id: 1 },
       { id: 17, name: "test12", parent_id: 16, project_id: 1 }
     ],
-    familyTree: null
+    familyTree: null,
+    detailView: false,
+    currentShowingDetail: null
   };
 
   componentDidMount() {
     this.setState({ familyTree: createFamilyTree(this.state.components) });
   }
+
+  renderFMDetailView = id => {
+    this.setState(prevState => ({
+      detailView:
+        prevState.currentShowingDetail === id || this.state.detailView === false
+          ? !this.state.detailView
+          : this.state.detailView,
+      currentShowingDetail: id
+    }));
+  };
 
   // grid-template-columns needs to be based on the spaceAllocated / number of components in row
   // grid-template-row needs to be based on the depth of changedData(number of iterations?)
@@ -43,9 +56,15 @@ class ProjectCreator extends Component {
     // `;
 
     return (
-      <div style={{ postition: "relative", top: "50%", left: "50%" }}>
+      <div style={{ display: "flex" }}>
+        {this.state.detailView ? (
+          <FMDetailView familyTree={this.state.familyTree} />
+        ) : null}
         {this.state.familyTree ? (
-          <FamilyMembers descendants={this.state.familyTree} />
+          <FamilyMembers
+            descendants={this.state.familyTree}
+            renderFMDetailView={this.renderFMDetailView}
+          />
         ) : null}
       </div>
     );

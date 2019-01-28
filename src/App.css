@@ -7,6 +7,10 @@
   justify-content: center;
 }
 
+.generation .child {
+  align-items: flex-end;
+}
+
 .generation {
   flex: 1;
   justify-content: center;
