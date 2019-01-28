@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { createFamilyTree } from "../createFamilyTree";
 import FamilyMembers from "../components/projectCreator/RenderFamilyMembers";
 import FMDetailView from "../components/projectCreator/FamilyMemberDetailView";
+import ProjectCodeBase from "../components/projectCreator/ProjectCodeBase";
 
 class ProjectCreator extends Component {
   state = {
@@ -56,9 +57,18 @@ class ProjectCreator extends Component {
     // `;
 
     return (
-      <div style={{ display: "flex" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          width: "100%"
+        }}
+      >
         {this.state.detailView ? (
-          <FMDetailView familyTree={this.state.familyTree} />
+          <FMDetailView
+            components={this.state.components}
+            currentShowingDetail={this.state.currentShowingDetail}
+          />
         ) : null}
         {this.state.familyTree ? (
           <FamilyMembers
@@ -66,6 +76,7 @@ class ProjectCreator extends Component {
             renderFMDetailView={this.renderFMDetailView}
           />
         ) : null}
+        <ProjectCodeBase />
       </div>
     );
   }
