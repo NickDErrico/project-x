@@ -10,7 +10,7 @@ const Footer = props => {
   `;
 
   const FooterContent = styled.div`
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;

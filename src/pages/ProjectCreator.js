@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { changeArr } from "../dataStruct";
+import { createFamilyTree } from "../createFamilyTree";
 import FamilyMembers from "./FamilyMembers";
 
 class ProjectCreator extends Component {
@@ -24,12 +24,11 @@ class ProjectCreator extends Component {
       { id: 16, name: "test11", parent_id: 9, project_id: 1 },
       { id: 17, name: "test12", parent_id: 16, project_id: 1 }
     ],
-    changedData: null,
-    something: true
+    familyTree: null
   };
 
   componentDidMount() {
-    this.setState({ changedData: changeArr(this.state.components) });
+    this.setState({ familyTree: createFamilyTree(this.state.components) });
   }
 
   // grid-template-columns needs to be based on the spaceAllocated / number of components in row
@@ -44,9 +43,9 @@ class ProjectCreator extends Component {
     // `;
 
     return (
-      <div>
-        {this.state.changedData ? (
-          <FamilyMembers descendants={this.state.changedData} />
+      <div style={{ postition: "relative", top: "50%", left: "50%" }}>
+        {this.state.familyTree ? (
+          <FamilyMembers descendants={this.state.familyTree} />
         ) : null}
       </div>
     );

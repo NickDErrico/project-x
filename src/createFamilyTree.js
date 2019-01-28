@@ -1,4 +1,4 @@
-export const changeArr = arr => {
+export const createFamilyTree = arr => {
   let result = Object.assign(
     { children: [], spaceAllocated: 0 },
     arr.filter(item => item.parent_id === null)[0]

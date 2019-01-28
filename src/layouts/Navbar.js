@@ -13,12 +13,11 @@ const Navbar = props => {
   `;
 
   const NavContent = styled.div`
-    width: 85vw;
+    width: 90vw;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.25em;
   `;
 
   const NavList = styled.ul`

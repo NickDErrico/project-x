@@ -1,23 +1,48 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
+const parents = [];
 
 class FamilyMembers extends Component {
+  handleClick(e) {
+    e.stopPropagation();
+    console.log(e.target);
+  }
   render() {
-    const styled = {
-      backgroundColor: "#7e6158",
-      color: "#f1f2ed",
-      height: "200px",
-      borderRadius: "5px"
-    };
+    let ancestors = this.props.descendants.children.map((child, iteration) => {
+      console.log(parents);
+      if (parents.includes(child.parent_id)) {
+        return (
+          <FamilyMembers
+            descendants={child}
+            key={child.id}
+            iteration={iteration}
+          />
+        );
+      } else {
+        parents.push(child.parent_id);
+        return (
+          <div
+            className={`generation ${child.parent_id}`}
+            key={child.id}
+            iteration={iteration}
+          >
+            <FamilyMembers descendants={child} key={child.id} />
+          </div>
+        );
+      }
+    });
+    const r = Math.floor(Math.random() * 80) + 175;
+    const g = Math.floor(Math.random() * 80) + 175;
+    const b = Math.floor(Math.random() * 80) + 175;
 
-    console.log(this.props);
-    let ancestors = this.props.descendants.children.map(child => (
-      <FamilyMembers descendants={child} key={child.id} />
-    ));
-    let r = Math.floor(Math.random() * 80) + 175;
-    let g = Math.floor(Math.random() * 80) + 175;
-    let b = Math.floor(Math.random() * 80) + 175;
+    //if child has children create new row unless child has a sibling that was already rendered
+
+    // let classname = this.props.descendants.children
+    //   ? `child generation ${this.props.descendants.id}`
+    //   : `child ${this.props.descendants.id}`;
     return this.props.descendants ? (
       <div
+        onClick={e => this.handleClick(e)}
         className="child"
         style={{
           padding: "15px",
