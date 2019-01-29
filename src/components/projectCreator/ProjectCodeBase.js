@@ -2,7 +2,15 @@ import React, { Component } from "react";
 
 class ProjectCodeBase extends Component {
   render() {
-    return <div>Project Code Base</div>;
+    let ancestors = this.props.descendants.children.map(child => {
+      return <ProjectCodeBase descendants={child} key={child.id} />;
+    });
+    return this.props.descendants ? (
+      <div className="file">
+        <div>{this.props.descendants.name}</div>
+        {ancestors}
+      </div>
+    ) : null;
   }
 }
 

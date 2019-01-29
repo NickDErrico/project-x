@@ -5,10 +5,21 @@ class FMDetailView extends Component {
     let component = this.props.components.filter(
       component => component.id === this.props.currentShowingDetail
     )[0];
+    let componentParent = this.props.components.filter(
+      parent => component.parent_id === parent.id
+    )[0];
+
     return component ? (
-      <div style={{ alignSelf: "stretch", border: "1px solid black" }}>
+      <div
+        style={{
+          border: `2px solid black`,
+          boxShadow: "0px 0px 2px #253B39",
+          borderRadius: "5px",
+          backgroundColor: `${this.props.color}`
+        }}
+      >
         <b style={{ display: "block" }}>
-          Parent : <button>{component.name}</button>
+          Parent : <button>{componentParent.name}</button>
         </b>
         <b style={{ display: "block" }}>Component : {component.name}</b>
       </div>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import { createFamilyTree } from "../createFamilyTree";
 import FamilyMembers from "../components/projectCreator/RenderFamilyMembers";
 import FMDetailView from "../components/projectCreator/FamilyMemberDetailView";
@@ -28,20 +27,22 @@ class ProjectCreator extends Component {
     ],
     familyTree: null,
     detailView: false,
-    currentShowingDetail: null
+    currentShowingDetail: null,
+    color: ""
   };
 
   componentDidMount() {
     this.setState({ familyTree: createFamilyTree(this.state.components) });
   }
 
-  renderFMDetailView = id => {
+  renderFMDetailView = (id, color) => {
     this.setState(prevState => ({
       detailView:
         prevState.currentShowingDetail === id || this.state.detailView === false
           ? !this.state.detailView
           : this.state.detailView,
-      currentShowingDetail: id
+      currentShowingDetail: id,
+      color: color
     }));
   };
 
@@ -60,14 +61,15 @@ class ProjectCreator extends Component {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-evenly",
-          width: "100%"
+          width: "100%",
+          height: "100%"
         }}
       >
         {this.state.detailView ? (
           <FMDetailView
             components={this.state.components}
             currentShowingDetail={this.state.currentShowingDetail}
+            color={this.state.color}
           />
         ) : null}
         {this.state.familyTree ? (
@@ -76,7 +78,9 @@ class ProjectCreator extends Component {
             renderFMDetailView={this.renderFMDetailView}
           />
         ) : null}
-        <ProjectCodeBase />
+        {this.state.familyTree ? (
+          <ProjectCodeBase descendants={this.state.familyTree} />
+        ) : null}
       </div>
     );
   }

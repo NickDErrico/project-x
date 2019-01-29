@@ -7,6 +7,15 @@
   justify-content: center;
 }
 
+.file {
+  display: flex;
+  flex-direction: column;
+}
+
+.file * .file {
+  flex: 1;
+}
+
 /* .generation .child {
   align-items: flex-end;
 } */

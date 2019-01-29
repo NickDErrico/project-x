@@ -49,12 +49,11 @@ class App extends Component {
     const RouteContainer = styled.div`
       display: flex;
       justify-content: center;
-      height: 100%;
     `;
 
     return (
       <Router>
-        <StyledBody className="App">
+        <StyledBody>
           <StyledContent>
             <Navbar />
             <Route exact path="/" component={Home} />
