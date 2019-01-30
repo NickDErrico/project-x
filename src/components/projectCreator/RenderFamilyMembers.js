@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-const parents = [];
 
 class FamilyMembers extends Component {
   shouldComponentUpdate(nextProps, nextState) {

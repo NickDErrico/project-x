@@ -1,7 +1,7 @@
 .child {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: stretch;
   align-items: center;
 }
 
@@ -10,8 +10,9 @@
   flex-direction: column;
 }
 
-.file * .file {
-  flex: 1;
+.folder {
+  display: flex;
+  flex-direction: column;
 }
 
 .generation {

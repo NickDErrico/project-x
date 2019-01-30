@@ -23,8 +23,11 @@ class ProjectCreator extends Component {
       { id: 14, name: "test9", parent_id: 3, project_id: 1 },
       { id: 15, name: "test10", parent_id: 5, project_id: 1 },
       { id: 16, name: "test11", parent_id: 9, project_id: 1 },
-      { id: 17, name: "test12", parent_id: 16, project_id: 1 }
+      { id: 17, name: "test12", parent_id: 16, project_id: 1 },
+      { id: 18, name: "test13", parent_id: 12, project_id: 1 },
+      { id: 19, name: "test14", parent_id: 18, project_id: 1 }
     ],
+    timestamp: "no timestamp yet",
     familyTree: null,
     detailView: false,
     currentShowingDetail: null,
@@ -62,7 +65,8 @@ class ProjectCreator extends Component {
         style={{
           display: "flex",
           width: "100%",
-          height: "100%"
+          height: "100%",
+          justifyContent: "center"
         }}
       >
         {this.state.detailView ? (

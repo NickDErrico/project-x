@@ -7,8 +7,8 @@ class ProjectCodeBase extends Component {
     });
     return this.props.descendants ? (
       <div className="file">
-        <div>{this.props.descendants.name}</div>
-        {ancestors}
+        {this.props.descendants.name}
+        <div className="folder">{ancestors}</div>
       </div>
     ) : null;
   }
