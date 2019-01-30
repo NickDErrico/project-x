@@ -15,38 +15,17 @@ class FamilyMembers extends Component {
     this.props.renderFMDetailView(this.props.descendants.id, color);
   };
 
-  //if child is firstChild of parent create wrapper row around <FamilyMember /> else insert
-  // child into sibling wrapper row
-
   render() {
     console.log(this);
     let ancestors = this.props.descendants.children.map(child => {
-      if (parents.includes(child.parent_id)) {
-        return (
-          <FamilyMembers
-            descendants={child}
-            key={child.id}
-            renderFMDetailView={this.props.renderFMDetailView}
-          />
-        );
-      } else {
-        parents.push(child.parent_id);
-        return (
-          <div
-            className={`generation ${child.parent_id}`}
-            key={child.id}
-            ref={e => {
-              this.parentContainer = e;
-            }}
-          >
-            <FamilyMembers
-              descendants={child}
-              key={child.id}
-              renderFMDetailView={this.props.renderFMDetailView}
-            />
-          </div>
-        );
-      }
+      console.log(child.parent_id);
+      return (
+        <FamilyMembers
+          descendants={child}
+          key={child.id}
+          renderFMDetailView={this.props.renderFMDetailView}
+        />
+      );
     });
     const r = Math.floor(Math.random() * 80) + 175;
     const g = Math.floor(Math.random() * 80) + 175;
@@ -70,8 +49,6 @@ class FamilyMembers extends Component {
         <button
           onClick={this.handleClick}
           style={{
-            justifySelf: "center",
-            alignSelf: "flex-start",
             border: "2px solid #253B39",
             borderRadius: "5px",
             backgroundColor: "#F1F2ED",
@@ -81,7 +58,9 @@ class FamilyMembers extends Component {
         >
           <b>{this.props.descendants.name}</b>
         </button>
-        {ancestors}
+        <div className={`generation ${this.props.descendants.name}`}>
+          {ancestors}
+        </div>
       </div>
     ) : null;
   }

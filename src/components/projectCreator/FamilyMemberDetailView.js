@@ -19,7 +19,12 @@ class FMDetailView extends Component {
         }}
       >
         <b style={{ display: "block" }}>
-          Parent : <button>{componentParent.name}</button>
+          Parent :
+          {componentParent ? (
+            <button>{componentParent.name}</button>
+          ) : (
+            <span>null</span>
+          )}
         </b>
         <b style={{ display: "block" }}>Component : {component.name}</b>
       </div>

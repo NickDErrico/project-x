@@ -1,10 +1,8 @@
 .child {
   display: flex;
-}
-
-.child * .child {
-  flex: 1;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .file {
@@ -16,11 +14,6 @@
   flex: 1;
 }
 
-/* .generation .child {
-  align-items: flex-end;
-} */
-
-/* .generation {
-  flex: 1;
-  justify-content: center;
-} */
+.generation {
+  display: flex;
+}
